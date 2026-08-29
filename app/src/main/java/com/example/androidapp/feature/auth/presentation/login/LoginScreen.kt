@@ -31,6 +31,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.androidapp.core.design.AppSpacing
+import com.example.androidapp.core.design.AppTypography
 import com.example.androidapp.core.design.components.RcPasswordTextField
 import com.example.androidapp.core.design.components.RcPrimaryButton
 
@@ -59,7 +61,16 @@ fun LoginScreen(
         )
 
         Spacer(
-            modifier = Modifier.height(16.dp)
+            modifier = Modifier.height(AppSpacing.sm)
+        )
+
+        Text(
+            text = "Login to continue",
+            style = AppTypography.typography.bodyMedium
+        )
+
+        Spacer(
+            modifier = Modifier.height(AppSpacing.lg)
         )
 
         RcTextFiled(
@@ -90,7 +101,7 @@ fun LoginScreen(
         // )
 
         Spacer(
-            modifier = Modifier.height(16.dp)
+            modifier = Modifier.height(AppSpacing.md)
         )
 
         RcPasswordTextField(
@@ -171,7 +182,7 @@ fun LoginScreen(
 //        )
 
         Spacer(
-            modifier = Modifier.height(24.dp)
+            modifier = Modifier.height(AppSpacing.lg)
         )
 
         state.errorMessage?.let {
@@ -182,11 +193,11 @@ fun LoginScreen(
         }
 
         Spacer(
-            modifier = Modifier.height(24.dp)
+            modifier = Modifier.height(AppSpacing.lg)
         )
 
         RcPrimaryButton(
-            label = "Logon",
+            label = "Login",
             onClick = {
                 viewModel.onEvent(
                     LoginEvent.LoginClicked
