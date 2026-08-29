@@ -31,6 +31,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.androidapp.core.design.AppSpacing
+import com.example.androidapp.core.design.AppTypography
 import com.example.androidapp.core.design.components.RcPasswordTextField
 import com.example.androidapp.core.design.components.RcPrimaryButton
 
@@ -50,7 +52,7 @@ fun LoginScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
+            .padding(AppSpacing.lg),
         verticalArrangement = Arrangement.Center
     ) {
         Text(
@@ -59,7 +61,16 @@ fun LoginScreen(
         )
 
         Spacer(
-            modifier = Modifier.height(16.dp)
+            modifier = Modifier.height(AppSpacing.sm)
+        )
+
+        Text(
+            text = "Login to continue",
+            style = AppTypography.typography.bodyMedium
+        )
+
+        Spacer(
+            modifier = Modifier.height(AppSpacing.lg)
         )
 
         RcTextFiled(
@@ -71,26 +82,9 @@ fun LoginScreen(
             },
             label = "Username"
         )
-        // OutlinedTextField(
-        //     modifier = Modifier.fillMaxWidth(),
-
-        //     value = state.username,
-
-        //     onValueChange = {
-        //         viewModel.onEvent(
-        //             LoginEvent.UsernameChanged(it)
-        //         )
-        //     },
-
-        //     label = {
-        //         Text("Username")
-        //     },
-
-        //     singleLine = true
-        // )
 
         Spacer(
-            modifier = Modifier.height(16.dp)
+            modifier = Modifier.height(AppSpacing.md)
         )
 
         RcPasswordTextField(
@@ -115,63 +109,8 @@ fun LoginScreen(
             supportingText = state.errorMessage,
         )
 
-//        OutlinedTextField(
-//            modifier = Modifier.fillMaxWidth(),
-//
-//            value = state.password,
-//
-//            onValueChange = {
-//                viewModel.onEvent(
-//                    LoginEvent.PasswordChanged(it)
-//                )
-//            },
-//
-//            label = {
-//                Text("Password")
-//            },
-//
-//            singleLine = true,
-//
-//            enabled = !state.isLoading,
-//
-//            visualTransformation =
-//                if(state.isPasswordVisible){
-//                    VisualTransformation.None
-//                }else{
-//                    PasswordVisualTransformation()
-//                },
-//
-//            trailingIcon = {
-//                IconButton(
-//                    onClick = {
-//                        viewModel.onEvent(
-//                            LoginEvent.PasswordVisibilityChanged
-//                        )
-//                    }
-//                ) {
-//
-//                    Icon(
-//                        imageVector =
-//                            if (state.isPasswordVisible) {
-//                                Icons.Default.VisibilityOff
-//                            } else {
-//                                Icons.Default.Visibility
-//                            },
-//
-//                        contentDescription =
-//                            if (state.isPasswordVisible) {
-//                                "Hide password"
-//                            } else {
-//                                "Show password"
-//                            }
-//                    )
-//                }
-//            }
-//
-//        )
-
         Spacer(
-            modifier = Modifier.height(24.dp)
+            modifier = Modifier.height(AppSpacing.lg)
         )
 
         state.errorMessage?.let {
@@ -182,11 +121,11 @@ fun LoginScreen(
         }
 
         Spacer(
-            modifier = Modifier.height(24.dp)
+            modifier = Modifier.height(AppSpacing.lg)
         )
 
         RcPrimaryButton(
-            label = "Logon",
+            label = "Login",
             onClick = {
                 viewModel.onEvent(
                     LoginEvent.LoginClicked
@@ -196,29 +135,5 @@ fun LoginScreen(
 
             enabled = !state.isLoading
         )
-//        Button(
-//            modifier = Modifier.fillMaxWidth().height(50.dp),
-//            enabled = !state.isLoading,
-//            shape = RoundedCornerShape(12.dp),
-//            colors = ButtonDefaults.buttonColors(
-//                contentColor = Color.White,
-//                containerColor = Color.Blue,
-//                disabledContainerColor = Color.LightGray
-//            ),
-//
-//            onClick = {
-//                viewModel.onEvent(
-//                    LoginEvent.LoginClicked
-//                )
-//            }
-//        ) {
-//            if(state.isLoading){
-//                CircularProgressIndicator(
-//                    modifier = Modifier.size(20.dp)
-//                )
-//            } else{
-//                Text("Login")
-//            }
-//        }
     }
 }

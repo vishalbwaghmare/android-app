@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.androidapp.core.design.AppShapes
 
 @Composable
 fun RcPasswordTextField(
@@ -30,7 +31,7 @@ fun RcPasswordTextField(
 
     OutlinedTextField(
         modifier = modifier,
-        shape = RoundedCornerShape(16.dp),
+        shape = AppShapes.medium,
         value = value,
         onValueChange = onValueChange,
         enabled = enabled,

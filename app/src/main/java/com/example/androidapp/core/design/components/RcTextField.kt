@@ -6,6 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.androidapp.core.design.AppShapes
 
 @Composable
 fun RcTextFiled(
@@ -21,7 +22,7 @@ fun RcTextFiled(
 
     OutlinedTextField(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
+        shape = AppShapes.medium,
 
         value = value,
 

@@ -57,7 +57,7 @@ fun HomeScreen(
         ) {
 
             Text(
-                "Welcome to the app!",
+                "Welcome to the app!!!!!",
                 style = MaterialTheme.typography.headlineSmall
             )
 
